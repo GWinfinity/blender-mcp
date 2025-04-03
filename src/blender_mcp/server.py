@@ -203,6 +203,18 @@ _blender_connection = None
 _polyhaven_enabled = False  # Add this global variable
 
 def get_blender_connection():
+    """
+    获取或创建一个持久化的 Blender 连接。
+    
+    该函数会尝试获取现有的 Blender 连接，如果连接不存在或已失效，则创建新的连接。
+    同时会检查并更新 PolyHaven 的启用状态。
+    
+    返回值:
+        BlenderConnection: 一个有效的 Blender 连接实例
+    
+    异常:
+        Exception: 当无法连接到 Blender 时抛出异常。需确保 Blender 插件正在运行。
+    """
     """Get or create a persistent Blender connection"""
     global _blender_connection, _polyhaven_enabled  # Add _polyhaven_enabled to globals
     
